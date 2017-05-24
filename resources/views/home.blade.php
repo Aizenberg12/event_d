@@ -62,6 +62,7 @@
 <a href='/it-vstrecha'>
 {{$event->event_category}}
 </a>
+    <!--fdfdsf-->
 </span>
             </p>
             <a class='icon_event_vip' href='#'></a>
