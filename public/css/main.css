@@ -16,14 +16,45 @@ img {
     height: 135px;
 }
 .footer {
-    position: absolute;
+    position: relative;
+    margin-top: 30px;
     bottom: 0;
     width: 100%;
-    height: 60px;
+    height: 50px;
     background-color: #DCDCDC;
 
 }
 .text-muted{
-    margin: 20px 0;
+    margin: 15px 0;
     color: #222;
+}
+
+/*Боковое меню*/
+
+#accordion input {
+    display: none;
+}
+#accordion label {
+    background: #eee;
+    border-radius: .25em;
+    cursor: pointer;
+    display: block;
+    margin-bottom: .125em;
+    padding: .25em 1em;
+    z-index: 20;
+}
+#accordion label:hover {
+    background: #ccc;
+}
+
+#accordion input:checked + label {
+    background: #ccc;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    color: white;
+    margin-bottom: 0;
+}
+
+.row {
+    margin-right: 15px;
 }

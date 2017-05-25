@@ -31,52 +31,82 @@
     </div>
 </div>
 <!-- Поиск -->
-<form class="navbar-form navbar-left" role="search">
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="Поиск">
+<div class="row">
+    <div class="container-fluid">
+        <form class="navbar-form navbar-left" >
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Поиск">
+            </div>
+            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+        </form>
     </div>
-    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-</form>
+</div>
 <!-- Критерии поиска -->
 
 
 <!-- Отображение мероприятия -->
- @foreach($events as $event)
-<div class="media">
-    <a class="pull-left" href="#">
-        <img class="media-object" src="{{asset($event->event_image)}}" alt="...">
-    </a>
-    <div class="media-body">
-        <div class='vevent'>
-            <p>
-            <h3>
-                <a class="summary" data-pjax-full="true" href="{{$event->link}}">{{$event->event_name}}</a>
-            </h3>
-<span class='dtstart' title='2017-05-16'>
-{{$event->event_data}}
-</span>
-<span class='location'>
-<a href="">{{$event->city}}</a>
-</span>
-<span class='category'>
-<a href='/it-vstrecha'>
-{{$event->event_category}}
-</a>
-    <!--fdfdsf-->
-</span>
-            </p>
-            <a class='icon_event_vip' href='#'></a>
+<div class="row">
+    <div class="container-fluid">
+        <div class="col-md-9 col-sm-12">
+             @foreach($events as $event)
+                <div class="media">
+                    <a class="pull-left" href="#">
+                        <img class="media-object" src="{{asset($event->event_image)}}" alt="...">
+                    </a>
+                    <div class="media-body">
+                        <div class='vevent'>
+                            <p>
+                            <h3>
+                                <a class="summary" data-pjax-full="true" href="{{$event->link}}">{{$event->event_name}}</a>
+                            </h3>
+                <span class='dtstart' title='2017-05-16'>
+                {{$event->event_data}}
+                </span>
+                <span class='location'>
+                <a href="">{{$event->city}}</a>
+                </span>
+                <span class='category'>
+                <a href='/it-vstrecha'>
+                {{$event->event_category}}
+                </a>
 
-            <p>
-                Организатор:
-                <a href="/companies/42">{{$event->organizer}}</a>
-            </p>
+                </span>
+                            </p>
+                            <a class='icon_event_vip' href='#'></a>
+
+                            <p>
+                                Организатор:
+                                <a href="/companies/42">{{$event->organizer}}</a>
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+            @endforeach
         </div>
-
+        <div class="col-md-3 hidden-sm hidden-xs">
+            <div class="panel panel-default">
+                <div class="panel-heading">Категории</div>
+                    <section id="accordion">
+                        <div>
+                            <input type="checkbox" id="check-1" />
+                            <label for="check-1">Option 1</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="check-2" />
+                            <label for="check-2">Option 2</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="check-3" />
+                            <label for="check-3">Option 3</label>
+                        </div>
+                    </section>
+            </div>
+        </div>
     </div>
-
 </div>
-@endforeach
+</div>
 <!-- footer -->
 <footer class="footer">
     <div class="container">
