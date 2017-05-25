@@ -33,10 +33,10 @@
 <!--Навигация-->
 <div class="container-fluid" style="margin-top: 70px">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a id="start_information_b" href="#">Общая информация</a></li>
-                    <li ><a id="event_registration_b" href="#">Регистрация</a></li>
-                    <li><a id="organizers_b" href="#">Организаторы и спонсоры</a></li>
-                    <li><a id="program_spek_b" href="#">Программа и спикеры</a></li>
+                    <li id="1" class="active"><a id="start_information_b" href="#">Общая информация</a></li>
+                    <li id="2" ><a id="event_registration_b" href="#">Регистрация</a></li>
+                    <li id="3"><a id="organizers_b" href="#">Организаторы и спонсоры</a></li>
+                    <li id="4"><a id="program_spek_b" href="#">Программа и спикеры</a></li>
                 </ul>
             </div>
 
@@ -56,8 +56,9 @@
                         <div class="form-group">
                         <label for="">Тип</label>
                         <select name="type" class="form-control">
-                            <option value="1" >1</option>
-                            <option value="2"> 2</option>
+                            @foreach($event_type as $type)
+                                <option value="{{$type->type}}">{{$type->type}}</option>
+                            @endforeach
                         </select>
                             </div>
                         <div>
@@ -105,9 +106,6 @@
                         <div class="form-group">
                         <label for="">Выберте тип регистрации</label>
                         <select name="type_registration" class="form-control">
-                            <option value="Не требуется">Не требуется</option>
-                            <option value="Не требуется">Не требуется</option>
-                            <option value="Не требуется">Не требуется</option>
 
                         </select>
                         </div>
@@ -128,8 +126,8 @@
                 <div id="organizers" style="display: none;">
                     <div class="row">
                         <h3>Спонсоры и партнеры</h3>
-                        <h4>Организатор</h4>
                         <div class="col-md-6 organizer">
+                            <h4>Организатор</h4>
                             <div class="form-group">
                                 <label for="">Название</label>
                                 <input type="text" name="name" class="form-control">
@@ -143,8 +141,8 @@
                                 <input type="text" name="description" class="form-control">
                             </div>
                         </div>
-                        <h4>Спонсор</h4>
                         <div class="col-md-6 sponsor">
+                            <h4>Спонсор</h4>
                             <div class="form-group">
                                 <label for="">Название</label>
                                 <input type="text" name="name" class="form-control">
@@ -165,8 +163,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <h4>Соорганизатор</h4>
                         <div class="col-md-6 soorganizer">
+                            <h4>Соорганизатор</h4>
                             <div class="form-group">
                                 <label for="">Назване</label>
                                 <input type="text" name="name" class="form-control">
@@ -180,8 +178,8 @@
                                 <input type="text" name="description" class="form-control">
                             </div>
                         </div>
-                        <h4>Партнер</h4>
                         <div class="col-md-6 partner">
+                            <h4>Партнер</h4>
                             <div class="form-group">
                                 <label for="">Название</label>
                                 <input type="text" name="name" class="form-control">
@@ -198,7 +196,6 @@
                                 <label for="">Описание</label>
                                 <input type="text" name="description" class="form-control">
                             </div>
-
                         </div>
                     </div>
                 </div>

@@ -8,6 +8,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 use App\Event;
+use App\EventType;
 
 class Controller extends BaseController
 {
@@ -15,8 +16,8 @@ class Controller extends BaseController
 
     public function home()
     {
-            $events = Event::all();
-            return view('home')->with(['events'=>$events]);
+        $events = Event::all();
+        return view('home')->with(['events'=>$events]);
     }
 
     public function show()
@@ -26,6 +27,7 @@ class Controller extends BaseController
     
     public function add()
     {
-        return view('add_event');
+        $event_type = EventType::all();
+        return view('add_event')->with(['event_type'=>$event_type]);
     }
 }
