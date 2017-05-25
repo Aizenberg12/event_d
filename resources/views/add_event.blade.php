@@ -101,48 +101,120 @@
                 <!--Форма 2-->
                 <div id="event_registration" style="display: none;">
                     <h3>Тип регистрации</h3>
-                    <select name="type_registration">
-                        <option value="Не требуется">Не требуется</option>
-                        <option value="Не требуется">Не требуется</option>
-                        <option value="Не требуется">Не требуется</option>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                        <label for="">Выберте тип регистрации</label>
+                        <select name="type_registration" class="form-control">
+                            <option value="Не требуется">Не требуется</option>
+                            <option value="Не требуется">Не требуется</option>
+                            <option value="Не требуется">Не требуется</option>
 
-                    </select>
-                    <input type="date">
-
+                        </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                        <label for="">Дата окончания регистрации</label>
+                        <input type="date" class="form-control">
+                            </div>
+                        <div class="form-group">
+                            <label for="">Время окончания регистрации</label>
+                            <input type="time" class="form-control">
+                        </div>
+                    </div>
                 </div>
 
                 <!--Форма 3-->
                 <div id="organizers" style="display: none;">
-                    <div class="organizer">
-                        <input type="text" name="name">
-                        <input type="text" name="link">
-                        <input type="text" name="description">
-                    </div>
-                    <div class="sponsor">
-                        <input type="text" name="name">
-                        <input type="text" name="link">
-                        <input type="text" name="description">
-                        <input type="text" name="status">
-                    </div>
-                    <div class="soorganizer">
-                        <input type="text" name="name">
-                        <input type="text" name="link">
-                        <input type="text" name="description">
-                    </div>
-                    <div class="partner">
-                        <input type="text" name="name">
-                        <input type="text" name="link">
-                        <input type="text" name="description">
-                        <input type="text" name="status">
-                    </div>
+                    <div class="row">
+                        <h3>Спонсоры и партнеры</h3>
+                        <h4>Организатор</h4>
+                        <div class="col-md-6 organizer">
+                            <div class="form-group">
+                                <label for="">Название</label>
+                                <input type="text" name="name" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Ссылка</label>
+                                <input type="text" name="link" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Описание</label>
+                                <input type="text" name="description" class="form-control">
+                            </div>
+                        </div>
+                        <h4>Спонсор</h4>
+                        <div class="col-md-6 sponsor">
+                            <div class="form-group">
+                                <label for="">Название</label>
+                                <input type="text" name="name" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Ссылка</label>
+                                <input type="text" name="link" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Статус</label>
+                                <input type="text" name="status" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Описание</label>
+                                <input type="text" name="description" class="form-control">
+                            </div>
 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h4>Соорганизатор</h4>
+                        <div class="col-md-6 soorganizer">
+                            <div class="form-group">
+                                <label for="">Назване</label>
+                                <input type="text" name="name" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Ссылка</label>
+                                <input type="text" name="link" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Описание</label>
+                                <input type="text" name="description" class="form-control">
+                            </div>
+                        </div>
+                        <h4>Партнер</h4>
+                        <div class="col-md-6 partner">
+                            <div class="form-group">
+                                <label for="">Название</label>
+                                <input type="text" name="name" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Ссылка</label>
+                                <input type="text" name="link" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Статус</label>
+                                <input type="text" name="status" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Описание</label>
+                                <input type="text" name="description" class="form-control">
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
 
                 <!--Форма 4-->
                 <div id="program_spek" style="display: none;">
                     <h3>Программа и Спикеры</h3>
-                    <input type="text" name="speker">
-                    <input type="text" name="program">
+                    <div class="form-group col-md-6">
+                        <label for="">Спикеры</label>
+                        <input type="text" name="speker" class="form-control">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="">Программа</label>
+                        <input type="text" name="program" class="form-control">
+                    </div>
+
                 </div>
                 </div>
             </form>
