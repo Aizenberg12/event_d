@@ -22,8 +22,8 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="#">Главная</a></li>
-                <li><a href="cabinet.html">Кабинет</a></li>
+                <li class="active"><a href="{{route('homeShow')}}">Главная</a></li>
+                <li><a href="{{route('cabinetShow')}}">Кабинет</a></li>
                 <li><a href="#">Выйти</a></li>
                 <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
             </ul>

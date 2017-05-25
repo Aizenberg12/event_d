@@ -13,7 +13,9 @@
 
 use App\Event;
 
-Route::get('/', function () {
-    $events = Event::all();
-    return view('home')->with(['events'=>$events]);
-});
+Route::get('/', 'Controller@home')->name('homeShow');
+ 
+Route::get('cabinet', 'Controller@show')->name('cabinetShow');
+
+Route::get('add', 'Controller@add')->name('addShow');
+
