@@ -3,11 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная</title>
+    <title>Кабинет</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <title>Мероприятие</title>
 </head>
 <body>
 <!-- Шапка -->
@@ -31,8 +30,45 @@
         </div>
     </div>
 </div>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-1">
+        <div class="container-fluid">
+            <h3>Кабинет</h3>
+            <div class="panel panel-default">
+                <div class="panel-heading">Личные данные</div>
+                <ul type="none">
+                    <lable>Имя:</lable>
+                    <li></li>
+                    <lable>Фимилия:</lable>
+                    <li></li>
+                    <lable>Имя пользователя:</lable>
+                    <li></li>
+                </ul>
+             </div>
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Контактная информация</div>
+                <ul type="none">
+                    <lable>E-mail:</lable>
+                    <li></li>
+                    <lable>Телефон:</lable>
+                    <li></li>
+                    <lable>Ссылка на внешний ресурс:</lable>
+                    <li></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container">
 <div class="liinks">
     <a href="{{route('addShow')}}">Добавить мероприятие</a>
+</div>
 </div>
 <!--footer-->
 <footer class="footer">

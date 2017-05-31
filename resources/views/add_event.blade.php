@@ -43,7 +43,7 @@
 <div class="row">
     <div class="col-md-10 col-md-offset-1">
         <div class="container-fluid">
-            <form>
+            <form method="post" enctype="multipart/form-data" action="{{route('addEvent')}}">
                 <div class="container-fluid">
                 <!--Форма 1-->
                 <div id="start_information">
@@ -51,42 +51,42 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="">Название</label>
-                        <input type="text" name="name"  class="form-control">
+                        <input type="text" name="event_name" require class="form-control">
                             </div>
                         <div class="form-group">
                         <label for="">Тип</label>
-                        <select name="type" class="form-control">
+                        <select name="event_type" class="form-control">
                             @foreach($event_type as $type)
-                                <option value="{{$type->type}}">{{$type->type}}</option>
+                                <option value="{{$type->id}}">{{$type->type}}</option>
                             @endforeach
                         </select>
                             </div>
                         <div>
                             <label for="">Загрузить изображение</label>
-                        <a href="#" class="thumbnail">
-                            <img data-src="holder.js/100%x180" alt="...">
-                        </a>
+                            <input type="file" neme="file">
+                            
                             </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                        <label for="">Тематика</label>
-                        <select name="theme" class="form-control">
-                            <option value="1">1</option>
-                            <option value="2"> 2</option>
-                        </select>
-                            </div>
-                        <div class="form-group">
                             <label for="">Дата</label>
-                            <input type="date" name="date" class="form-control">
+                            <input type="date" name="event_date" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Адрес</label>
+                            <input type="date" name="event_address" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Ссылка</label>
+                            <input type="text" name="event_link" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="">Время начала</label>
-                            <input type="time" name="start_time" class="form-control">
+                            <input type="time" name="time_start" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="">Время окончания</label>
-                            <input type="time" name="start_end" class="form-control">
+                            <input type="time" name="time_end" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="">Стоимость</label>
@@ -94,7 +94,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Описание</label>
-                            <input type="text" name="description" class="form-control">
+                            <input type="text" name="event_description" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -106,6 +106,9 @@
                         <div class="form-group">
                         <label for="">Выберте тип регистрации</label>
                         <select name="type_registration" class="form-control">
+                            <option>Свободный вход</option>
+                            <option>Регистраци на внешнем ресурсе</option>
+                            <option>Вход по приглашению</option>
 
                         </select>
                         </div>
@@ -113,11 +116,11 @@
                     <div class="col-md-6">
                         <div class="form-group">
                         <label for="">Дата окончания регистрации</label>
-                        <input type="date" class="form-control">
+                        <input type="date" name="date_end_registration" class="form-control">
                             </div>
                         <div class="form-group">
                             <label for="">Время окончания регистрации</label>
-                            <input type="time" class="form-control">
+                            <input type="time" name="time_end_registration" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -130,34 +133,34 @@
                             <h4>Организатор</h4>
                             <div class="form-group">
                                 <label for="">Название</label>
-                                <input type="text" name="name" class="form-control">
+                                <input type="text" name="organ_name" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="">Ссылка</label>
-                                <input type="text" name="link" class="form-control">
+                                <input type="text" name="organ_link" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="">Описание</label>
-                                <input type="text" name="description" class="form-control">
+                                <input type="text" name="organ_description" class="form-control">
                             </div>
                         </div>
                         <div class="col-md-6 sponsor">
                             <h4>Спонсор</h4>
                             <div class="form-group">
                                 <label for="">Название</label>
-                                <input type="text" name="name" class="form-control">
+                                <input type="text" name="sponsor_name" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="">Ссылка</label>
-                                <input type="text" name="link" class="form-control">
+                                <input type="text" name="sponsor_link" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="">Статус</label>
-                                <input type="text" name="status" class="form-control">
+                                <input type="text" name="sponsor_status" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="">Описание</label>
-                                <input type="text" name="description" class="form-control">
+                                <input type="text" name="sponsor_description" class="form-control">
                             </div>
 
                         </div>
@@ -167,34 +170,34 @@
                             <h4>Соорганизатор</h4>
                             <div class="form-group">
                                 <label for="">Назване</label>
-                                <input type="text" name="name" class="form-control">
+                                <input type="text" name="soorgan_name" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="">Ссылка</label>
-                                <input type="text" name="link" class="form-control">
+                                <input type="text" name="soorgan_link" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="">Описание</label>
-                                <input type="text" name="description" class="form-control">
+                                <input type="text" name="soorgan_description" class="form-control">
                             </div>
                         </div>
                         <div class="col-md-6 partner">
                             <h4>Партнер</h4>
                             <div class="form-group">
                                 <label for="">Название</label>
-                                <input type="text" name="name" class="form-control">
+                                <input type="text" name="partner_name" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="">Ссылка</label>
-                                <input type="text" name="link" class="form-control">
+                                <input type="text" name="partner_link" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="">Статус</label>
-                                <input type="text" name="status" class="form-control">
+                                <input type="text" name="partner_status" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="">Описание</label>
-                                <input type="text" name="description" class="form-control">
+                                <input type="text" name="partner_description" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -205,15 +208,16 @@
                     <h3>Программа и Спикеры</h3>
                     <div class="form-group col-md-6">
                         <label for="">Спикеры</label>
-                        <input type="text" name="speker" class="form-control">
+                        <input type="text" name="speker_description" class="form-control">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="">Программа</label>
-                        <input type="text" name="program" class="form-control">
+                        <input type="text" name="program_description" class="form-control">
                     </div>
-
+                <button class="btn btn-primary">Создать</button>
                 </div>
                 </div>
+                {{csrf_field()}}
             </form>
         </div>
     </div>

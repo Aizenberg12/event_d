@@ -19,3 +19,4 @@ Route::get('cabinet', 'Controller@show')->name('cabinetShow');
 
 Route::get('add', 'Controller@add')->name('addShow');
 
+Route::post('add', 'Controller@addEvent')->name('addEvent');
