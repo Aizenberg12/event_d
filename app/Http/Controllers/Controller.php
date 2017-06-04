@@ -22,16 +22,36 @@ class Controller extends BaseController
 
     public function home()
     {
-        $events = Event::select('event_name', 'organizer_id', 'event_date', 'event_type_id')->orderBy('id', 'desc')->get();
-        dump($events);
-        foreach ($events as $event){
+        $events = Event::select(
+            'event_name',
+            'id',
+            'event_link',
+            'event_address',
+            'organizer_id',
+            'event_date',
+            'event_image',
+            'event_type')->orderBy('id', 'desc')->get();
 
-            $event_type_id = EventType::select('type')->where('id'  );
-        }
-
+       /* dump($events);*/
         return view('home')->with(['events'=>$events]);
+
+    
     }
 
+    public function oneEvent($id){
+
+
+        $event = Event::all()->where('id', $id);
+
+        return view('event_content')->with(['event'=>$event]);
+
+
+    }
+    public function homeCheck(){
+        $event_types = EventType::all();
+        return view('add_event')->with(['event_type'=>$event_types]);
+    }
+    
     public function show()
     {
         return view('cabinet');
@@ -45,7 +65,7 @@ class Controller extends BaseController
 
     public function addEvent(Request $request)
     {
-        $this->validate($request,
+       /* $this->validate($request,
             [
                 'event_name' => 'required|max:255',
                 'event_link' => 'max:255',
@@ -72,11 +92,10 @@ class Controller extends BaseController
                 'partner_link' => 'max:255',
                 'partner_description' => 'required',
                 'partner_status' => 'max:255',
-            ]);
+            ]);*/
 
         $organizer = new Organizer();
         $event = new Event();
-        dump($request);
         $data = $request->all();
 
         $data_org = [
@@ -116,21 +135,9 @@ class Controller extends BaseController
             'speker_description' =>$data['speker_description'],
             'program_description' =>$data['program_description'],
             'organizer_id' =>$id['id'],
-            'event_type_id' =>$data['event_type'],
+            'event_type' =>$data['event_type'],
         ];
-        $file = $request->file;
-
-        $name = time(); // prepend the time (integer) to the original file name
-
-        $file->move('uploads', $name); // move it to the 'uploads' directory (public/uploads)
-
-        // create instance of Intervention Image
-        $img = Image::make('public/foo.jpg');
-
-        // resize image to fixed size
-        // See the docs - http://image.intervention.io/api/resize
-        $img->resize(300, 200);
-
+      
 
 
     
@@ -139,8 +146,13 @@ class Controller extends BaseController
 
         $organizer->save();
         $event->save();
-        
+
         return redirect('/');
     }
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
 
 }

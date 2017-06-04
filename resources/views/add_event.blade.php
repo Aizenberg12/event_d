@@ -18,14 +18,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">LOGO</a>
+            <a class="navbar-brand" href="{{route('homeShow')}}"><span class="glyphicon glyphicon-list-alt"></span> Make Event</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="{{route('homeShow')}}">Главная</a></li>
-                <li><a href="{{route('cabinetShow')}}">Кабинет</a></li>
-                <li><a href="#">Выйти</a></li>
-                <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+                <li ><a href="{{route('homeShow')}}">Главная</a></li>
+                <li class="active"><a href="{{route('cabinetShow')}}">Кабинет</a></li>
             </ul>
         </div>
     </div>
@@ -57,7 +55,7 @@
                         <label for="">Тип</label>
                         <select name="event_type" class="form-control">
                             @foreach($event_type as $type)
-                                <option value="{{$type->id}}">{{$type->type}}</option>
+                                <option value="{{$type->type}}">{{$type->type}}</option>
                             @endforeach
                         </select>
                             </div>
@@ -74,7 +72,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Адрес</label>
-                            <input type="date" name="event_address" class="form-control">
+                            <input type="text" name="event_address" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="">Ссылка</label>

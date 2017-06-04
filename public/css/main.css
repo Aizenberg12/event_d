@@ -1,3 +1,8 @@
+
+.navbar-inverse .navbar-brand {
+    color: #ffffff;
+}
+
 .event_list{
     padding-top: 100px;
 }
@@ -5,7 +10,8 @@
 width: 80px;
 }
 img {
-    width: 180px;
+    width: 140px;
+    height: 140px;
 }
 
 
@@ -17,11 +23,12 @@ img {
 }
 .footer {
     position: relative;
-    margin-top: 30px;
+
     bottom: 0;
     width: 100%;
     height: 50px;
     background-color: #DCDCDC;
+    margin-top: 125px;
 
 }
 .text-muted{

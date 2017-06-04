@@ -18,21 +18,19 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">LOGO</a>
+            <a class="navbar-brand" href="{{route('homeShow')}}"><span class="glyphicon glyphicon-list-alt"></span> Make Event</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{route('homeShow')}}">Главная</a></li>
                 <li class="active"><a href="{{route('cabinetShow')}}">Кабинет</a></li>
-                <li><a href="#">Выйти</a></li>
-                <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
             </ul>
         </div>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-md-6 col-md-offset-1">
+    <div class="col-md-6 col-md-offset-1t">
         <div class="container-fluid">
             <h3>Кабинет</h3>
             <div class="panel panel-default">
