@@ -65,7 +65,7 @@ class Controller extends BaseController
 
     public function addEvent(Request $request)
     {
-       /* $this->validate($request,
+       $this->validate($request,
             [
                 'event_name' => 'required|max:255',
                 'event_link' => 'max:255',
@@ -80,19 +80,12 @@ class Controller extends BaseController
                 'time_end_registration' => 'required|max:255',
                 'organ_name' => 'required|max:255',
                 'organ_link' => 'max:255',
-                'organ_description' => 'required',
-                'soorgan_name' => 'required|max:255',
                 'soorgan_link' => 'max:255',
-                'soorgan_description' => 'required',
-                'sponsor_name' => 'required|max:255',
                 'sponsor_link' => 'max:255',
-                'sponsor_description' => 'required',
                 'sponsor_status' => 'max:255',
-                'partner_name' => 'required|max:255',
                 'partner_link' => 'max:255',
-                'partner_description' => 'required',
                 'partner_status' => 'max:255',
-            ]);*/
+            ]);
 
         $organizer = new Organizer();
         $event = new Event();

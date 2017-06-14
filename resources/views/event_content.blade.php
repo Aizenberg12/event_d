@@ -68,8 +68,8 @@
 <div class="row" style="margin-top: 50px">
     <div class="container">
         <ul class="nav nav-tabs">
-            <li id="1" class="active"><a id="about_b" href="#">Анонс мероприятия</a></li>
-            <li id="2" ><a id="event_speeker_b" href="#">Спикеры и программа</a></li>
+            <li id="1" class="active"><a id="about_b" href="#">Анонс мероприя</a></li>
+            <li id="2" ><a id="event_speeker_b" href="#">Предложения и потребности</a></li>
         </ul>
     </div>
     <div class="container">
@@ -78,9 +78,9 @@
             <p>{{$ev->event_description}}</p>
         </div>
         <div id="event_speeker" style="display: none;">
-            <h2>Программа</h2>
+            <h2>Предложения</h2>
             <p>{{$ev->program_description}}</p>
-            <h2>Спикеры</h2>
+            <h2>Потребности</h2>
             <p>{{$ev->speker_description}}</p>
         </div>
     </div>
