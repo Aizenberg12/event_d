@@ -1,4 +1,6 @@
-
+.navbar-form{
+    margin-top: 0;
+}
 .navbar-inverse .navbar-brand {
     color: #ffffff;
 }

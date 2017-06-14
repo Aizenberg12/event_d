@@ -1,34 +1,6 @@
-<!doctype html>
-<html lang="{{ config('app.locale') }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Кабинет</title>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/main.css">
-</head>
-<body>
-<!-- Шапка -->
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{route('homeShow')}}"><span class="glyphicon glyphicon-list-alt"></span> Make Event</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{route('homeShow')}}">Главная</a></li>
-                <li class="active"><a href="{{route('cabinetShow')}}">Кабинет</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
+@extends('layouts.app')
 
+@section('content')
 <div class="row">
     <div class="col-md-8 col-md-offset-1t">
         <div class="container-fluid">
@@ -63,11 +35,5 @@
 
 </div>
 </div>
-<!--footer-->
-<footer class="footer">
-    <div class="container">
-        <p class="text-muted">Footer information</p>
-    </div>
-</footer>
-</body>
-</html>
+
+@endsection

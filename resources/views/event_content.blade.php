@@ -1,42 +1,12 @@
-<!doctype html>
-<html lang="{{ config('app.locale') }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Make Event</title>
-    <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
-    <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/main.css')}}">
+@extends('layouts.app')
 
-
-</head>
-<body>
-<!-- Шапка -->
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{route('homeShow')}}"><span class="glyphicon glyphicon-list-alt"></span> Make Event</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li ><a href="{{route('homeShow')}}">Главная</a></li>
-                <li><a href="{{route('cabinetShow')}}">Кабинет</a></li>
-
-            </ul>
-        </div>
-    </div>
-</div>
+@section('content')
 <!-- Поиск -->
 @foreach($event as $ev)
 
 @endforeach
 <!-- Отображение мероприятия -->
-<div class="row" style="margin-top: 70px">
+<div class="row">
     <div class="container">
         <div class="col-md-8">
             <div class="col-md-4">
@@ -85,14 +55,6 @@
         </div>
     </div>
 </div>
-<!-- footer -->
-<footer class="footer">
-    <div class="container">
-        <p class="text-muted">Footer information</p>
-    </div>
-</footer>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="{{asset('js/anons.js')}}"></script>
-<script src="{{asset('js/bootstrap.min.js')}}"></script>
-</body>
-</html>
+@endsection@extends('layouts.app')
+
+@section('content')
