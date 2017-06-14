@@ -45,6 +45,7 @@
                 <div class="container-fluid">
                 <!--Форма 1-->
                 <div id="start_information">
+                <!--Комент от Антонна-->
                     <h3>Общая информация:</h3>
                     <div class="col-md-6">
                         <div class="form-group">
