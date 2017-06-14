@@ -25,3 +25,7 @@ Route::get('add', 'Controller@add')->name('addShow');
 
 Route::post('add', 'Controller@addEvent')->name('addEvent');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
