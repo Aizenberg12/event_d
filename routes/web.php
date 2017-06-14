@@ -27,5 +27,5 @@ Route::post('add', 'Controller@addEvent')->name('addEvent');
 
 
 Auth::routes();
-
+/*sfsdfsdfsd*/
 Route::get('/home', 'HomeController@index')->name('home');
