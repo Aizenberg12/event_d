@@ -31,9 +31,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
+                <a class="navbar-brand" href="{{route('homeShow')}}"><span class="glyphicon glyphicon-list-alt"></span> Make Event</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
