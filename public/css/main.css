@@ -23,6 +23,10 @@ img {
     float: left;
     height: 135px;
 }
+#app{
+  min-height: calc(80vh - 50px);
+}
+
 .footer {
     position: relative;
 
