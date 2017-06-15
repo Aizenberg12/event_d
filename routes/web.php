@@ -15,7 +15,7 @@ use App\Event;
 
 Auth::routes();
 
-Route::get('/', 'Controller@home')->name('homeShow');
+Route::get('home', 'Controller@home')->name('homeShow');
 
 Route::get('event/{id}', 'Controller@oneEvent')->name('eventShow');
 
@@ -25,8 +25,6 @@ Route::get('add', 'Controller@add')->name('addShow');
 
 Route::post('add', 'Controller@addEvent')->name('addEvent');
 
-Route::get('welcome', 'Controller@welcome');
+Route::get('/', 'Controller@welcome');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
