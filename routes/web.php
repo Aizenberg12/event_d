@@ -25,6 +25,7 @@ Route::get('add', 'Controller@add')->name('addShow');
 
 Route::post('add', 'Controller@addEvent')->name('addEvent');
 
+Route::get('welcome', 'Controller@welcome');
 
 Auth::routes();
 /*sfsdfsdfsdssdfsdf*/
