@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Testing\Concerns\MakesHttpRequests;
 use Illuminate\Routing\Controller as BaseController;
@@ -14,6 +13,7 @@ use App\EventType;
 use App\Organizer;
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Image;
 use Intervention\Image\ImageManager;
 
 class Controller extends BaseController
@@ -69,6 +69,7 @@ class Controller extends BaseController
 
     public function addEvent(Request $request)
     {
+        
        $this->validate($request,
             [
                 'event_name' => 'required|max:255',
@@ -89,7 +90,27 @@ class Controller extends BaseController
                 'sponsor_status' => 'max:255',
                 'partner_link' => 'max:255',
                 'partner_status' => 'max:255',
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
+
+        $image = $request->file('image');
+        $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
+     
+   
+        $destinationPath = public_path('/thumbnail');
+        $img = Image::make($image->getRealPath());
+        $img->resize(100, 100, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save($destinationPath.'/'.$input['imagename']);
+
+        $destinationPath = public_path('/images');
+        $image->move($destinationPath, $input['imageneme']);
+
+                $this->postImage->add($input);
+
+        return back()
+            ->with('success','Image Upload successful')
+            ->with('imageName',$input['imagename']);
 
         $organizer = new Organizer();
         $event = new Event();
@@ -135,7 +156,7 @@ class Controller extends BaseController
             'event_type' =>$data['event_type'],
         ];
       
-
+        $image = Image::make('public/foo.jpg')->resize(300, 200);
 
     
 
@@ -145,6 +166,11 @@ class Controller extends BaseController
         $event->save();
 
         return redirect('home');
+    }
+
+    public function resizeImage()
+    {
+        return view('resizeImage');
     }
     /**
      * Create a new controller instance.

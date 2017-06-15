@@ -33,8 +33,9 @@
                         </select>
                             </div>
                         <div>
+
                             <label for="">Загрузить изображение</label>
-                            <input type="file" neme="file">
+                            <input type="file" neme="image" class="image">
                             
                             </div>
                     </div>
