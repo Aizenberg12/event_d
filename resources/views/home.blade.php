@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Поиск -->
-<div class="row">
+<div class="row" style="margin-top: 20px;">
     <div class="container">
         <form class="navbar-form navbar-left" >
             <div class="form-group">
@@ -21,37 +21,33 @@
         <div class="col-md-9 col-sm-12">
              @foreach($events as $event)
                 <div class="media">
-                    <a class="pull-left" href="{{ route('eventShow', ['id' => $event->id]) }}">
+                    <a class="pull-left" href="{{$event->event_link}}">
                         <img class="media-object" src="{{asset($event->event_image)}}" alt="...">
                     </a>
                     <div class="media-body">
                         <div class='vevent'>
                             <p>
                             <h3>
-                                <a class="summary" data-pjax-full="true" href="{{$event->event_link}}">{{$event->event_name}}</a>
+                                <a class="summary" data-pjax-full="true" href="{{ route('eventShow', ['id' => $event->id]) }}">{{$event->event_name}}</a>
                             </h3>
-                <span class='dtstart' title='2017-05-16'>
-                {{$event->event_date}}
-                </span>
-                <span class='location'>
-                <a>{{$event->event_address}}</a>
-                </span>
-                <span class='category'>
-                <a href='/it-vstrecha'>
-                {{$event->event_type}}
-                </a>
-
-                </span>
+                            <span class='dtstart' title='2017-05-16'>
+                                {{$event->event_date}}
+                            </span>
+                            <span class='location'>
+                                <a>{{$event->event_address}}</a>
+                            </span>
+                            <span class='category'>
+                            <a href='/it-vstrecha'>
+                                {{$event->event_type}}
+                            </a>
+                            </span>
                             </p>
-                            <a class='icon_event_vip' href='#'></a>
-
+                                <a class='icon_event_vip' href='#'></a>
                             <p>
                                 <a href="/companies/42">{{$event->organizer}}</a>
                             </p>
                         </div>
-
                     </div>
-
                 </div>
             @endforeach
         </div>

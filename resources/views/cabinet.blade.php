@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row">
+<div class="row" style="margin-top: 20px;">
     <div class="col-md-8 col-md-offset-1t">
         <div class="container-fluid">
             <h3>Кабинет</h3>

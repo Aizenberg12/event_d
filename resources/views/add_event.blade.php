@@ -2,7 +2,7 @@
 
 @section('content')
 <!--Навигация-->
-<div class="container-fluid" >
+<div class="container-fluid" style="margin-top: 20px">
                 <ul class="nav nav-tabs">
                     <li id="1" class="active"><a id="start_information_b" href="#">Общая информация</a></li>
                     <li id="2" ><a id="event_registration_b" href="#">Регистрация</a></li>

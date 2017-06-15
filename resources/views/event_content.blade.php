@@ -6,7 +6,7 @@
 
 @endforeach
 <!-- Отображение мероприятия -->
-<div class="row">
+<div class="row" style="margin-top: 20px;">
     <div class="container">
         <div class="col-md-8">
             <div class="col-md-4">
@@ -55,6 +55,4 @@
         </div>
     </div>
 </div>
-@endsection@extends('layouts.app')
-
-@section('content')
+@endsection
