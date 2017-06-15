@@ -56,6 +56,10 @@ class Controller extends BaseController
     {
         return view('cabinet');
     }
+    public function welcome()
+    {
+        return view('welcome');
+    }
     
     public function add()
     {
