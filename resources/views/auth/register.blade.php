@@ -73,4 +73,6 @@
         </div>
     </div>
 </div>
+<div class="hFooter"></div>
+
 @endsection
