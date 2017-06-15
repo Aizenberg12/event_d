@@ -10,7 +10,7 @@
                     <li id="4"><a id="program_spek_b" href="#">Программа и спикеры</a></li>
                 </ul>
             </div>
-
+        <script>tinymce.init({ selector:'textarea' });</script>
 <div class="row">
     <div class="col-md-10 col-md-offset-1">
         <div class="container-fluid">
@@ -65,7 +65,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Описание</label>
-                            <input type="text" name="event_description" class="form-control">
+                            <textarea name="event_description" class="form-control"></textarea>
                         </div>
                     </div>
                 </div>
@@ -179,11 +179,11 @@
                     <h3>Программа и Спикеры</h3>
                     <div class="form-group col-md-6">
                         <label for="">Спикеры</label>
-                        <input type="text" name="speker_description" class="form-control">
+                        <textarea name="speker_description" class="form-control"></textarea> 
                     </div>
                     <div class="form-group col-md-6">
                         <label for="">Программа</label>
-                        <input type="text" name="program_description" class="form-control">
+                        <textarea name="program_description" class="form-control"></textarea>
                     </div>
                 <button class="btn btn-primary">Создать</button>
                 </div>
@@ -193,4 +193,5 @@
         </div>
     </div>
 </div>
+<div class="hFooter"></div>
 @endsection

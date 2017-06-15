@@ -82,4 +82,5 @@
 
 
 </div><!-- /.container -->
+<div class="hFooter"></div>
 @endsection

@@ -144,7 +144,7 @@ class Controller extends BaseController
         $organizer->save();
         $event->save();
 
-        return redirect('/');
+        return redirect('home');
     }
     /**
      * Create a new controller instance.

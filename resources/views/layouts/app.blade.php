@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=886getbvtw8ejpopla8uqznphfmov3j6icwwsm1szdsqj152"></script>
 </head>
 <body>
     <div id="app">
