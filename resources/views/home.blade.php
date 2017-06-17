@@ -21,7 +21,7 @@
         <div class="col-md-9 col-sm-12">
              @foreach($events as $event)
                 <div class="media">
-                    <a class="pull-left" href="{{$event->event_link}}">
+                    <a class="pull-left" href="{{ route('eventShow', ['id' => $event->id]) }}">
                         <img class="media-object" src="{{asset($event->event_image)}}" alt="...">
                     </a>
                     <div class="media-body">

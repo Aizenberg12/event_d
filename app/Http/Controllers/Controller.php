@@ -84,13 +84,6 @@ class Controller extends BaseController
                 'date_end_registration' => 'required|max:255',
                 'type_registration' => 'required|max:255',
                 'time_end_registration' => 'required|max:255',
-                'organ_name' => 'required|max:255',
-                'organ_link' => 'max:255',
-                'soorgan_link' => 'max:255',
-                'sponsor_link' => 'max:255',
-                'sponsor_status' => 'max:255',
-                'partner_link' => 'max:255',
-                'partner_status' => 'max:255',
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
 
@@ -115,27 +108,6 @@ class Controller extends BaseController
         $path = public_path('/images');
         $image->move($path, $photoName);
 
-        $data_org = [
-            'organ_name' =>$data['organ_name'],
-            'organ_link' =>$data['organ_link'],
-            'organ_description' =>$data['organ_description'],
-            'soorgan_name' =>$data['soorgan_name'],
-            'soorgan_link' =>$data['soorgan_link'],
-            'soorgan_description' =>$data['soorgan_description'],
-            'sponsor_name' =>$data['sponsor_name'],
-            'sponsor_link' =>$data['sponsor_link'],
-            'sponsor_description' =>$data['sponsor_description'],
-            'sponsor_status' =>$data['sponsor_status'],
-            'partner_name' =>$data['partner_name'],
-            'partner_link' =>$data['partner_link'],
-            'partner_description' =>$data['partner_description'],
-            'partner_status' =>$data['partner_status'],
-        ];
-        $organizer->fill($data_org);
-        $id_org = Organizer::select('id')->orderBy('id', 'desc')->limit(1)->get();
-        foreach ($id_org as $id){
-
-        }
 
         $data_main = [
             'event_name'=>$data['event_name'],
@@ -151,7 +123,7 @@ class Controller extends BaseController
             'time_end_registration' =>$data['time_end_registration'],
             'speker_description' =>$data['speker_description'],
             'program_description' =>$data['program_description'],
-            'organizer_id' =>$id['id'],
+            'organ_name' =>$data['organ_name'],
             'event_type' =>$data['event_type'],
         ];
       
@@ -159,8 +131,6 @@ class Controller extends BaseController
     
 
         $event->fill($data_main);
-
-        $organizer->save();
         $event->save();
 
         return redirect('home');

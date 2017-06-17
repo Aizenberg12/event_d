@@ -6,8 +6,7 @@
                 <ul class="nav nav-tabs">
                     <li id="1" class="active"><a id="start_information_b" href="#">Общая информация</a></li>
                     <li id="2" ><a id="event_registration_b" href="#">Регистрация</a></li>
-                    <li id="3"><a id="organizers_b" href="#">Организаторы и спонсоры</a></li>
-                    <li id="4"><a id="program_spek_b" href="#">Программа и спикеры</a></li>
+                    <li id="3"><a id="program_spek_b" href="#">Программа и спикеры</a></li>
                 </ul>
             </div>
         <script>tinymce.init({ selector:'textarea' });</script>
@@ -26,6 +25,10 @@
                             <label for="">Название</label>
                         <input type="text" name="event_name" require class="form-control">
                             </div>
+                        <div class="form-group">
+                            <label for="">Организатор</label>
+                            <input type="text" name="organ_name" class="form-control">
+                        </div>
                         <div class="form-group">
                         <label for="">Тип</label>
                         <select name="event_type" class="form-control">
@@ -99,92 +102,17 @@
                 </div>
 
                 <!--Форма 3-->
-                <div id="organizers" style="display: none;">
-                    <div class="row">
-                        <h3>Спонсоры и партнеры</h3>
-                        <div class="col-md-6 organizer">
-                            <h4>Организатор</h4>
-                            <div class="form-group">
-                                <label for="">Название</label>
-                                <input type="text" name="organ_name" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Ссылка</label>
-                                <input type="text" name="organ_link" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Описание</label>
-                                <input type="text" name="organ_description" class="form-control">
-                            </div>
-                        </div>
-                        <div class="col-md-6 sponsor">
-                            <h4>Спонсор</h4>
-                            <div class="form-group">
-                                <label for="">Название</label>
-                                <input type="text" name="sponsor_name" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Ссылка</label>
-                                <input type="text" name="sponsor_link" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Статус</label>
-                                <input type="text" name="sponsor_status" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Описание</label>
-                                <input type="text" name="sponsor_description" class="form-control">
-                            </div>
 
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 soorganizer">
-                            <h4>Соорганизатор</h4>
-                            <div class="form-group">
-                                <label for="">Назване</label>
-                                <input type="text" name="soorgan_name" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Ссылка</label>
-                                <input type="text" name="soorgan_link" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Описание</label>
-                                <input type="text" name="soorgan_description" class="form-control">
-                            </div>
-                        </div>
-                        <div class="col-md-6 partner">
-                            <h4>Партнер</h4>
-                            <div class="form-group">
-                                <label for="">Название</label>
-                                <input type="text" name="partner_name" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Ссылка</label>
-                                <input type="text" name="partner_link" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Статус</label>
-                                <input type="text" name="partner_status" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Описание</label>
-                                <input type="text" name="partner_description" class="form-control">
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <!--Форма 4-->
                 <div id="program_spek" style="display: none;">
-                    <h3>Программа и Спикеры</h3>
+                    <h3>Потребности и предложения</h3>
                     <div class="form-group col-md-6">
-                        <label for="">Спикеры</label>
+                        <label for="">Предложения</label>
                         <textarea name="speker_description" class="form-control"></textarea> 
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="">Программа</label>
+                        <label for="">Потребности</label>
                         <textarea name="program_description" class="form-control"></textarea>
                     </div>
                 <button type="submit" class="btn btn-primary">Создать</button>

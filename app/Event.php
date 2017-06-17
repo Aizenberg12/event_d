@@ -21,7 +21,7 @@ class Event extends Model
         'time_end_registration',
         'speker_description',
         'program_description',
-        'organizer_id',
+        'organ_name',
         'event_type_id',
     ];
 }
