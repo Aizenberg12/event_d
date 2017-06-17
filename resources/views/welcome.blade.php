@@ -75,12 +75,6 @@
 
         </div>
     </div>
-
-    <hr class="featurette-divider">
-
-
-
-
 </div><!-- /.container -->
 <div class="hFooter"></div>
 @endsection

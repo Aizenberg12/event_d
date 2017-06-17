@@ -12,9 +12,11 @@
             </div>
         <script>tinymce.init({ selector:'textarea' });</script>
 <div class="row">
-    <div class="col-md-10 col-md-offset-1">
+    <div class="col-md-10 col-md-offse
+    t-1">
         <div class="container-fluid">
-            <form method="post" enctype="multipart/form-data" action="{{route('addEvent')}}">
+            <form action="{{route('addEvent')}}" method="POST"  enctype="multipart/form-data" >
+                            {{csrf_field()}}
                 <div class="container-fluid">
                 <!--Форма 1-->
                 <div id="start_information">
@@ -34,7 +36,7 @@
                             </div>
                         <div>
                             <label for="">Загрузить изображение</label>
-                            <input type="file" neme="file">
+                            <input type="file" name="image">
                             
                             </div>
                     </div>
@@ -185,10 +187,9 @@
                         <label for="">Программа</label>
                         <textarea name="program_description" class="form-control"></textarea>
                     </div>
-                <button class="btn btn-primary">Создать</button>
+                <button type="submit" class="btn btn-primary">Создать</button>
                 </div>
                 </div>
-                {{csrf_field()}}
             </form>
         </div>
     </div>

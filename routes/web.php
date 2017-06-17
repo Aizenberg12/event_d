@@ -15,16 +15,20 @@ use App\Event;
 
 Auth::routes();
 
+Route::group(['middleware' => 'auth'], function () {
+	Route::get('cabinet', 'Controller@show')->name('cabinetShow');
+
+	Route::get('add', 'Controller@add')->name('addShow');
+
+	Route::post('addevent', 'Controller@addEvent')->name('addEvent');
+});
+
+
 Route::get('home', 'Controller@home')->name('homeShow');
 
 Route::get('event/{id}', 'Controller@oneEvent')->name('eventShow');
 
-Route::get('cabinet', 'Controller@show')->name('cabinetShow');
-
-Route::get('add', 'Controller@add')->name('addShow');
-
-Route::post('add', 'Controller@addEvent')->name('addEvent');
-
 Route::get('/', 'Controller@welcome');
+
 
 

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Testing\Concerns\MakesHttpRequests;
 use Illuminate\Routing\Controller as BaseController;
@@ -14,6 +13,8 @@ use App\EventType;
 use App\Organizer;
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Image;
+use Illuminate\Html\HtmlServiceProvider;
 use Intervention\Image\ImageManager;
 
 class Controller extends BaseController
@@ -69,6 +70,7 @@ class Controller extends BaseController
 
     public function addEvent(Request $request)
     {
+        
        $this->validate($request,
             [
                 'event_name' => 'required|max:255',
@@ -89,11 +91,29 @@ class Controller extends BaseController
                 'sponsor_status' => 'max:255',
                 'partner_link' => 'max:255',
                 'partner_status' => 'max:255',
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
+
 
         $organizer = new Organizer();
         $event = new Event();
         $data = $request->all();
+
+        // $image = $request->file('image'); 
+        // $photoName = time() . '.' . $data['event_name'] .'.'.$request->image->guessClientExtension();
+        // $request->file('image')->move(public_path('images'), $photoName);
+
+        $image = $request->file('image');
+        $photoName = time() . '.' . $data['event_name'] .'.'.$request->image->guessClientExtension();
+   
+        $path = public_path('/thumbnail');
+        $img = Image::make($image->getRealPath());
+        $img->resize(100, 100, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save($path.'/'.$photoName);
+
+        $path = public_path('/images');
+        $image->move($path, $photoName);
 
         $data_org = [
             'organ_name' =>$data['organ_name'],
@@ -136,7 +156,6 @@ class Controller extends BaseController
         ];
       
 
-
     
 
         $event->fill($data_main);
@@ -145,6 +164,11 @@ class Controller extends BaseController
         $event->save();
 
         return redirect('home');
+    }
+
+    public function resizeImage()
+    {
+        return view('resizeImage');
     }
     /**
      * Create a new controller instance.
