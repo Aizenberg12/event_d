@@ -14,6 +14,7 @@ use App\Organizer;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use Image;
+use Illuminate\Html\HtmlServiceProvider;
 use Intervention\Image\ImageManager;
 
 class Controller extends BaseController
@@ -93,28 +94,26 @@ class Controller extends BaseController
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
 
-        $image = $request->file('image');
-        $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
-     
-   
-        $destinationPath = public_path('/thumbnail');
-        $img = Image::make($image->getRealPath());
-        $img->resize(100, 100, function ($constraint) {
-            $constraint->aspectRatio();
-        })->save($destinationPath.'/'.$input['imagename']);
-
-        $destinationPath = public_path('/images');
-        $image->move($destinationPath, $input['imageneme']);
-
-                $this->postImage->add($input);
-
-        return back()
-            ->with('success','Image Upload successful')
-            ->with('imageName',$input['imagename']);
 
         $organizer = new Organizer();
         $event = new Event();
         $data = $request->all();
+
+        // $image = $request->file('image'); 
+        // $photoName = time() . '.' . $data['event_name'] .'.'.$request->image->guessClientExtension();
+        // $request->file('image')->move(public_path('images'), $photoName);
+
+        $image = $request->file('image');
+        $photoName = time() . '.' . $data['event_name'] .'.'.$request->image->guessClientExtension();
+   
+        $path = public_path('/thumbnail');
+        $img = Image::make($image->getRealPath());
+        $img->resize(100, 100, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save($path.'/'.$photoName);
+
+        $path = public_path('/images');
+        $image->move($path, $photoName);
 
         $data_org = [
             'organ_name' =>$data['organ_name'],
@@ -156,7 +155,6 @@ class Controller extends BaseController
             'event_type' =>$data['event_type'],
         ];
       
-        $image = Image::make('public/foo.jpg')->resize(300, 200);
 
     
 
