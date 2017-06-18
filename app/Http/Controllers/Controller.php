@@ -7,8 +7,10 @@ use Illuminate\Foundation\Testing\Concerns\MakesHttpRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\Auth;
 
 use App\Event;
+use App\User;
 use App\EventType;
 use App\Organizer;
 use App\Http\Requests;
@@ -16,6 +18,7 @@ use Illuminate\Http\Request;
 use Image;
 use Illuminate\Html\HtmlServiceProvider;
 use Intervention\Image\ImageManager;
+use App\Mail\Respond;
 
 class Controller extends BaseController
 {
@@ -44,8 +47,13 @@ class Controller extends BaseController
 
 
         $event = Event::all()->where('id', $id);
-
-        return view('event_content')->with(['event'=>$event]);
+        // dump($event);
+        foreach ($event as $ev) {
+            $email = User::all()->where('id', $ev['user_id']);
+        }
+        
+        // dump($email);
+        return view('event_content')->with(['event'=>$event, 'email'=>$email]);
 
 
     }
@@ -139,9 +147,15 @@ class Controller extends BaseController
         return redirect('home');
     }
 
-    public function resizeImage()
-    {
-        return view('resizeImage');
+    public function send_email(Request $request) {
+        $id = Auth::id();
+        $user = User::all()->where('id', $id);
+        foreach ($user as $user) {
+            $mail_user = $user['email'];
+        }
+        \Mail::to($request->email)->send(new Respond($mail_user));
+
+        return back();
     }
     /**
      * Create a new controller instance.

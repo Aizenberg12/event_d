@@ -21,6 +21,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('add', 'Controller@add')->name('addShow');
 
 	Route::post('addevent', 'Controller@addEvent')->name('addEvent');
+
+	Route::get('send_email', 'Controller@send_email')->name('send_email');
 });
 
 

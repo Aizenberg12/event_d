@@ -5,6 +5,9 @@
 @foreach($event as $ev)
 
 @endforeach
+@foreach($email as $em)
+
+@endforeach
 <!-- Отображение мероприятия -->
 <div class="row" style="margin-top: 20px;">
     <div class="container">
@@ -36,7 +39,10 @@
 
             </ul>
             <div class="send">
-            <li><a  class="btn btn-primary" href=""> Связаться с организатором <span class="glyphicon glyphicon-send" aria-hidden="true"></span></a>
+            <form method="get" action="{{route('send_email')}}">
+                <input type="hidden" name="email" value="{{$em->email}}">
+                <li><button class="btn btn-primary" value="">Связаться с организатором <span class="glyphicon glyphicon-send" aria-hidden="true"></span></button>
+            </form>
             </div>
         </div>
     </div>

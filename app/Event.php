@@ -23,6 +23,7 @@ class Event extends Model
         'program_description',
         'organ_name',
         'event_type_id',
-        'event_image'
+        'event_image',
+        'user_id',
     ];
 }
