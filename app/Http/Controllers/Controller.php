@@ -64,7 +64,13 @@ class Controller extends BaseController
     
     public function show()
     {
-        return view('cabinet');
+        $id = Auth::id();
+        $user = User::all()->where('id', $id);
+        $user_events = Event::all()->where('user_id', $id);
+
+        foreach ($user as $user) {}
+
+        return view('cabinet')->with(['user_info'=>$user, 'events'=>$user_events]);
     }
     public function welcome()
     {
@@ -96,7 +102,7 @@ class Controller extends BaseController
                 'event_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
 
-
+        $user_id = Auth::id();
         $organizer = new Organizer();
         $event = new Event();
         $data = $request->all();
@@ -112,7 +118,7 @@ class Controller extends BaseController
         $img = Image::make($image->getRealPath());
         $img->resize(300, 300, function ($constraint) {
             $constraint->aspectRatio();
-        })->save($path.'/'.$photoName);
+        })->save($path.$photoName);
 
         $path = public_path('/images');
         $path1 = '/images/'.$photoName;
@@ -136,6 +142,7 @@ class Controller extends BaseController
             'organ_name' =>$data['organ_name'],
             'event_type' =>$data['event_type'],
             'event_image' =>$path1,
+            'user_id' =>$user_id,
         ];
       
 
