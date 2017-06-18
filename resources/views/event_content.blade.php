@@ -57,13 +57,13 @@
     <div class="container">
         <div id="about" style="">
             <h1>Описание</h1>
-            <p>{{$ev->event_description}}</p>
+            <?=$ev->event_description?>
         </div>
         <div id="event_speeker" style="display: none;">
             <h2>Предложения</h2>
-            <p>{{$ev->program_description}}</p>
+            <?=$ev->program_description?>
             <h2>Потребности</h2>
-            <p>{{$ev->speker_description}}</p>
+            <?=$ev->speker_description?>
         </div>
     </div>
 </div>
