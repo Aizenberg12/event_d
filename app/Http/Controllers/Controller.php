@@ -85,7 +85,7 @@ class Controller extends BaseController
                 'date_end_registration' => 'required|max:255',
                 'type_registration' => 'required|max:255',
                 'time_end_registration' => 'required|max:255',
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'event_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
 
 
@@ -97,16 +97,17 @@ class Controller extends BaseController
         // $photoName = time() . '.' . $data['event_name'] .'.'.$request->image->guessClientExtension();
         // $request->file('image')->move(public_path('images'), $photoName);
 
-        $image = $request->file('image');
-        $photoName = time() . '.' . $data['event_name'] .'.'.$request->image->guessClientExtension();
+        $image = $request->file('event_image');
+        $photoName = time() . '.' . $request->event_image->guessClientExtension();
    
         $path = public_path('/thumbnail');
         $img = Image::make($image->getRealPath());
-        $img->resize(100, 100, function ($constraint) {
+        $img->resize(300, 300, function ($constraint) {
             $constraint->aspectRatio();
         })->save($path.'/'.$photoName);
 
         $path = public_path('/images');
+        $path1 = '/images/'.$photoName;
         $image->move($path, $photoName);
 
 
@@ -126,6 +127,7 @@ class Controller extends BaseController
             'program_description' =>$data['program_description'],
             'organ_name' =>$data['organ_name'],
             'event_type' =>$data['event_type'],
+            'event_image' =>$path1,
         ];
       
 

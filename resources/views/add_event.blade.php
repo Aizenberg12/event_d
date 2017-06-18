@@ -39,7 +39,7 @@
                             </div>
                         <div>
                             <label for="">Загрузить изображение</label>
-                            <input type="file" name="image">
+                            <input type="file" name="event_image">
                             
                             </div>
                     </div>
