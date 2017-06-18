@@ -142,7 +142,7 @@
 
                         <li> <lable>E-mail:</lable> Ivan@gmail.com</li>
                         <li> <lable>Телефон:</lable> 89287654980</li>
-                        <li> <lable>Ссылка на внешний ресурс:</lable> <a href="https://vk.com/erythroxylum_s"></a> </li>
+                        <li> <lable>Ссылка на внешний ресурс:</lable>  </li>
                     </ul>
                 
             </div>

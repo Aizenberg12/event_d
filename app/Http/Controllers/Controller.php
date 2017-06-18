@@ -30,6 +30,7 @@ class Controller extends BaseController
             'event_address',
             'organizer_id',
             'event_date',
+            'organ_name',
             'event_image',
             'event_type')->orderBy('id', 'desc')->get();
 

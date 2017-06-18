@@ -22,16 +22,22 @@
                     <li>{{$ev->event_type}}</li>
                     <li>Ссылка: <a href="{{$ev->event_link}}">{{$ev->event_link}}</a></li>
                 </ul>
+
             </div>
         </div>
         <div class="col-md-4" style="border-left: 1px solid;">
             <ul type="none">
+                <li>Организатор: {{$ev->organ_name}}</li>
                 <li>Адрес: {{$ev->event_address}}</li>
                 <li>Дата проведения: {{$ev->event_date}}</li>
                 <li>Время начала: {{$ev->time_start}} | Время окончания: {{$ev->time_end}}</li>
                 <li>Стоимость: {{$ev->cost}}</li>
                 <li>Регистрация: <a href=" {{$ev->type_registration}}">{{$ev->type_registration}}</a></li>
+
             </ul>
+            <div class="send">
+            <li><a  class="btn btn-primary" href=""> Связаться с организатором <span class="glyphicon glyphicon-send" aria-hidden="true"></span></a>
+            </div>
         </div>
     </div>
 </div>

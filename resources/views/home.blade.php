@@ -81,7 +81,6 @@
                         </div>
                     </section>
             </div>
-            <a  class="btn btn-primary" href="{{route('addShow')}}"> Создать мероприятие <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
         </div>
     </div>
 </div>
