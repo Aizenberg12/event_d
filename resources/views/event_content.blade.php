@@ -40,8 +40,28 @@
             </ul>
             <div class="send">
             <form method="get" action="{{route('send_email')}}">
-                <input type="hidden" name="email" value="{{$em->email}}">
-                <li><button class="btn btn-primary" value="">Связаться с организатором <span class="glyphicon glyphicon-send" aria-hidden="true"></span></button>
+
+                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Подтверждение...</h4>
+                      </div>
+                      <div class="modal-body">
+                        <p>Вы уверенны, что хотите отправить свои данные?</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Не-не-не...</button>
+                        <button type="submit" class="btn btn-primary">Отправить</button>
+                      </div>
+                    </div><!-- /.modal-content -->
+                  </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+                <ul type="none">
+                    <li><input type="hidden" name="email" value="{{$em->email}}">
+                    <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Связаться с организатором <span class="glyphicon glyphicon-send" aria-hidden="true"></span></button>
+                </ul>
             </form>
             </div>
         </div>
