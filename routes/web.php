@@ -23,14 +23,22 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('addevent', 'Controller@addEvent')->name('addEvent');
 
 	Route::get('send_email', 'Controller@send_email')->name('send_email');
+
+	Route::post('event_edit/{id}', 'Controller@event_edit_save')->name('event_edit_save');
+
+	Route::get('event_edit/{id}', 'Controller@event_edit')->name('event_edit');
+
+	Route::get('delete_event/{id}', 'Controller@event_delete')->name('event_delete');
+
 });
 
 
-Route::get('home', 'Controller@home')->name('homeShow');
+Route::get('/', 'Controller@home')->name('homeShow');
 
 Route::get('event/{id}', 'Controller@oneEvent')->name('eventShow');
 
-Route::get('/', 'Controller@welcome');
+Route::get('home', 'Controller@welcome');
+
 
 
 

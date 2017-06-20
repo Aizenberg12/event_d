@@ -39,6 +39,28 @@
                             </p>
                         </div>
                     </div>
+
+                     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Подтверждение...</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p>Вы уверенны, что хотите удалить мероприятие?</p>
+                          </div>
+                          <div class="modal-footer">
+                            <a type="button" class="btn btn-default" data-dismiss="modal">Не-не-не...</a>
+                            <a href="{{route('event_delete', ['id' => $event->id])}}" class="btn btn-danger">удалить</a>
+                          </div>
+                        </div><!-- /.modal-content -->
+                      </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+                    
+                    <a  class="btn btn-danger" data-toggle="modal" data-target="#myModal">Удалить мероприятие</a>
+                    <a href="{{route('event_edit', ['id' => $event->id])}}" class="btn btn-primary">Редактировать мероприятие</a>
+
                 </div>
             @endforeach
             </div>

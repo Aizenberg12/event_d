@@ -164,6 +164,91 @@ class Controller extends BaseController
 
         return back();
     }
+
+    public function event_delete($id) {
+        Event::where('id', $id)->delete();
+
+        return back();
+    }
+
+    public function event_edit($id) {
+        $event = Event::all()->where('id', $id);
+        $event_type = EventType::all();
+        dump($event);
+
+        return view('edit_event')->with(['event'=>$event, 'event_type'=>$event_type]);
+    }
+
+    public function event_edit_save(Request $request, $id) {
+
+        $this->validate($request,
+            [
+                'event_name' => 'required|max:255',
+                'event_link' => 'max:255',
+                'event_address' => 'required|max:255',
+                'event_date' => 'required|max:255',
+                'time_start' => 'required|max:255',
+                'time_end' => 'required|max:255',
+                'cost' => 'required|max:255',
+                'event_description' => 'required',
+                'date_end_registration' => 'required|max:255',
+                'type_registration' => 'required|max:255',
+                'time_end_registration' => 'required|max:255',
+                'event_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+
+        $user_id = Auth::id();
+        $organizer = new Organizer();
+        $event = new Event();
+        $data = $request->all();
+
+        // $image = $request->file('image'); 
+        // $photoName = time() . '.' . $data['event_name'] .'.'.$request->image->guessClientExtension();
+        // $request->file('image')->move(public_path('images'), $photoName);
+
+        $image = $request->file('event_image');
+        $photoName = time() . '.' . $request->event_image->guessClientExtension();
+   
+        $path = public_path('/thumbnail');
+        $img = Image::make($image->getRealPath());
+        $img->resize(300, 300, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save($path.$photoName);
+
+        $path = public_path('/images');
+        $path1 = '/images/'.$photoName;
+        $image->move($path, $photoName);
+
+
+        $data_main = [
+            'event_name'=>$data['event_name'],
+            'event_link' =>$data['event_link'],
+            'event_address' =>$data['event_address'],
+            'event_date' => $data['event_date'],
+            'time_start' =>$data['time_start'],
+            'time_end' =>$data['time_end'],
+            'cost' =>$data['cost'],
+            'event_description' =>$data['event_description'],
+            'date_end_registration' =>$data['date_end_registration'],
+            'type_registration' =>$data['type_registration'],
+            'time_end_registration' =>$data['time_end_registration'],
+            'speker_description' =>$data['speker_description'],
+            'program_description' =>$data['program_description'],
+            'organ_name' =>$data['organ_name'],
+            'event_type' =>$data['event_type'],
+            'event_image' =>$path1,
+            'user_id' =>$user_id,
+        ];
+      
+
+    
+
+
+        Event::where('id', $id)->update($data_main);
+
+
+        return redirect('cabinet');
+    }
     /**
      * Create a new controller instance.
      *
