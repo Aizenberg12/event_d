@@ -237,7 +237,6 @@ class Controller extends BaseController
             'organ_name' =>$data['organ_name'],
             'event_type' =>$data['event_type'],
             'event_image' =>$path1,
-            'user_id' =>$user_id,
         ];
       
 

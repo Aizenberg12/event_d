@@ -32,6 +32,13 @@ Route::group(['middleware' => 'auth'], function () {
 
 });
 
+Route::group(['middleware' => 'role:admin'], function() {
+	Route::get('admin', 'Admin@dashboard');
+
+	Route::get('user_delete/{id}', 'Admin@user_delete')->name('user_delete');
+});
+
+
 
 Route::get('/', 'Controller@home')->name('homeShow');
 
