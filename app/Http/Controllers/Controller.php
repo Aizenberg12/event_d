@@ -174,7 +174,7 @@ class Controller extends BaseController
     public function event_edit($id) {
         $event = Event::all()->where('id', $id);
         $event_type = EventType::all();
-        dump($event);
+        // dump($event);
 
         return view('edit_event')->with(['event'=>$event, 'event_type'=>$event_type]);
     }

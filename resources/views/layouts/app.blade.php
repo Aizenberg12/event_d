@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Make Event</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -81,9 +81,9 @@
     </div>
 
 <!-- footer -->
-<footer class="footer">
+<footer class="footer" style="text-align: center;">
     <div class="container">
-        <p class="text-muted">Footer information</p>
+        <p class="text-muted">Весь контент &copy; 2017 Make Event</p>
     </div>
 </footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>

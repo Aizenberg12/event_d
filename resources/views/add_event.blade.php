@@ -6,7 +6,7 @@
                 <ul class="nav nav-tabs">
                     <li id="1" class="active"><a id="start_information_b" href="#">Общая информация</a></li>
                     <li id="2" ><a id="event_registration_b" href="#">Регистрация</a></li>
-                    <li id="3"><a id="program_spek_b" href="#">Программа и спикеры</a></li>
+                    <li id="3"><a id="program_spek_b" href="#">Потребности и предложения</a></li>
                 </ul>
             </div>
         <script>tinymce.init({ selector:'textarea' });</script>

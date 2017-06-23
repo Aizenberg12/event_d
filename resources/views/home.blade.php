@@ -2,21 +2,12 @@
 
 @section('content')
 <!-- Поиск -->
-<div class="row" style="margin-top: 20px;">
-    <div class="container">
-        <form class="navbar-form navbar-left" >
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Поиск">
-            </div>
-            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-        </form>
-    </div>
-</div>
+
 <!-- Критерии поиска -->
 
 
 <!-- Отображение мероприятия -->
-<div class="row">
+<div class="row" style="margin-top: 30px">
     <div class="container-fluid">
         <div class="col-md-9 col-sm-12">
              @foreach($events as $event)

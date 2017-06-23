@@ -40,11 +40,11 @@ Route::group(['middleware' => 'role:admin'], function() {
 
 
 
-Route::get('/', 'Controller@home')->name('homeShow');
+Route::get('home', 'Controller@home')->name('homeShow');
 
 Route::get('event/{id}', 'Controller@oneEvent')->name('eventShow');
 
-Route::get('home', 'Controller@welcome');
+Route::get('/', 'Controller@welcome');
 
 
 
